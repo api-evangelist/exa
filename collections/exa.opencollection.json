@@ -1,0 +1,102 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Exa Search API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Neural or keyword web search",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.exa.ai/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search the Exa neural web index. Modes include instant, fast, auto, deep-lite, deep, and deep-reasoning. Optionally returns contents, highlights, and summaries."
+        },
+        {
+          "info": {
+            "name": "Find pages similar to a URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.exa.ai/findSimilar",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Find pages similar to a URL"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Contents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get contents for a set of URLs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.exa.ai/contents",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Extract page text, summaries, highlights, and subpages for a list of URLs already known to the caller."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Answer",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get an LLM-grounded answer with citations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.exa.ai/answer",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns a direct answer (factual queries) or a detailed summary with citations (open-ended queries). Supports streaming with stream=true and structured output via outputSchema."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
