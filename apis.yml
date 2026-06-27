@@ -55,13 +55,13 @@ apis:
         url: https://exa.ai/docs
       - type: GettingStarted
         url: https://dashboard.exa.ai/onboarding
-      - type: SignUp
+      - type: Signup
         url: https://dashboard.exa.ai
       - type: APIReference
         url: https://exa.ai/docs/reference/search
-      - type: SDK
+      - type: SDKs
         url: https://github.com/exa-labs/exa-py
-      - type: SDK
+      - type: SDKs
         url: https://github.com/exa-labs/exa-js
       - type: GitHubRepository
         url: https://github.com/exa-labs
