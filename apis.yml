@@ -114,6 +114,12 @@ apis:
       - type: API Key
         description: Authenticate with an API key via the x-api-key header.
 common:
+  - type: VulnerabilityDisclosure
+    url: security/exa-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/exa-domain-security.yml
+  - type: Authentication
+    url: authentication/exa-authentication.yml
   - type: Website
     url: https://exa.ai
   - type: Documentation
