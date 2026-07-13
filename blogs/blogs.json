@@ -2,14 +2,15 @@
   "repo": "exa",
   "feeds": [
     {
-      "source": "https://exa.ai/blog",
-      "feed_url": "",
+      "source": "https://exa.ai/docs",
+      "feed_url": "https://exa.ai/docs",
+      "title": "",
       "saved": 0,
-      "method": "agent-scrape"
+      "method": "none"
     }
   ],
   "post_count": 1,
-  "fetched": "2026-06-27T12:40:47Z",
-  "agent_pulled": "2026-06-27",
+  "fetched": "2026-07-11T11:50:51Z",
+  "agent_pulled": "2026-07-04",
   "note": "Blog is JS-rendered with no dates in HTML; used sitemap.xml lastmod dates to determine recency. Most recent post exa-agent (2026-06-16) predates the 2026-06-20 window, so nothing new saved."
 }
