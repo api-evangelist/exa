@@ -114,6 +114,8 @@ apis:
       - type: API Key
         description: Authenticate with an API key via the x-api-key header.
 common:
+  - type: AgenticAccess
+    url: agentic-access/exa-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/exa-vulnerability-disclosure.yml
   - type: DomainSecurity
