@@ -1,0 +1,111 @@
+openapi: 3.1.0
+info:
+  title: Exa Search Answer API
+  description: 'Neural web search API for AI agents. Endpoints and parameters derived from the Exa API reference at https://exa.ai/docs/reference. Covers /search, /contents, /findSimilar, and /answer. Authenticate with an API key via the x-api-key header or Authorization: Bearer.'
+  version: 1.0.0
+  contact:
+    name: API Evangelist
+    email: kin@apievangelist.com
+  license:
+    name: Proprietary
+servers:
+- url: https://api.exa.ai
+  description: Exa production API
+security:
+- apiKeyHeader: []
+- bearerAuth: []
+tags:
+- name: Answer
+paths:
+  /answer:
+    post:
+      summary: Get an LLM-grounded answer with citations
+      description: Returns a direct answer (factual queries) or a detailed summary with citations (open-ended queries). Supports streaming with stream=true and structured output via outputSchema.
+      operationId: answer
+      tags:
+      - Answer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnswerRequest'
+      responses:
+        '200':
+          description: Answer with sources
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnswerResponse'
+            text/event-stream:
+              schema:
+                type: string
+                description: Server-sent events when stream=true
+components:
+  schemas:
+    AnswerResponse:
+      type: object
+      properties:
+        answer:
+          oneOf:
+          - type: string
+          - type: object
+            additionalProperties: true
+        citations:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchResult'
+        costDollars:
+          type: object
+          additionalProperties: true
+    AnswerRequest:
+      type: object
+      required:
+      - query
+      properties:
+        query:
+          type: string
+        stream:
+          type: boolean
+        outputSchema:
+          type: object
+          additionalProperties: true
+        text:
+          type: boolean
+        model:
+          type: string
+          description: Model selector, e.g. exa or exa-pro
+        systemPrompt:
+          type: string
+    SearchResult:
+      type: object
+      properties:
+        id:
+          type: string
+        url:
+          type: string
+          format: uri
+        title:
+          type: string
+        publishedDate:
+          type: string
+        author:
+          type: string
+        score:
+          type: number
+        text:
+          type: string
+        highlights:
+          type: array
+          items:
+            type: string
+        summary:
+          type: string
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      in: header
+      name: x-api-key
+    bearerAuth:
+      type: http
+      scheme: bearer

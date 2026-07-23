@@ -1,0 +1,129 @@
+openapi: 3.1.0
+info:
+  title: Exa Search Answer Contents API
+  description: 'Neural web search API for AI agents. Endpoints and parameters derived from the Exa API reference at https://exa.ai/docs/reference. Covers /search, /contents, /findSimilar, and /answer. Authenticate with an API key via the x-api-key header or Authorization: Bearer.'
+  version: 1.0.0
+  contact:
+    name: API Evangelist
+    email: kin@apievangelist.com
+  license:
+    name: Proprietary
+servers:
+- url: https://api.exa.ai
+  description: Exa production API
+security:
+- apiKeyHeader: []
+- bearerAuth: []
+tags:
+- name: Contents
+paths:
+  /contents:
+    post:
+      summary: Get contents for a set of URLs
+      description: Extract page text, summaries, highlights, and subpages for a list of URLs already known to the caller.
+      operationId: getContents
+      tags:
+      - Contents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContentsRequest'
+      responses:
+        '200':
+          description: Contents results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentsResponse'
+components:
+  schemas:
+    ContentsResponse:
+      type: object
+      properties:
+        requestId:
+          type: string
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchResult'
+        costDollars:
+          type: object
+          additionalProperties: true
+    ContentsRequest:
+      type: object
+      required:
+      - urls
+      properties:
+        urls:
+          type: array
+          items:
+            type: string
+            format: uri
+        text:
+          oneOf:
+          - type: boolean
+          - type: object
+            properties:
+              maxCharacters:
+                type: integer
+              includeHtmlTags:
+                type: boolean
+        highlights:
+          type: object
+          properties:
+            query:
+              type: string
+            numSentences:
+              type: integer
+            highlightsPerUrl:
+              type: integer
+        summary:
+          type: object
+          properties:
+            query:
+              type: string
+            schema:
+              type: object
+              additionalProperties: true
+        subpages:
+          type: integer
+        subpageTarget:
+          type: array
+          items:
+            type: string
+        maxAgeHours:
+          type: integer
+    SearchResult:
+      type: object
+      properties:
+        id:
+          type: string
+        url:
+          type: string
+          format: uri
+        title:
+          type: string
+        publishedDate:
+          type: string
+        author:
+          type: string
+        score:
+          type: number
+        text:
+          type: string
+        highlights:
+          type: array
+          items:
+            type: string
+        summary:
+          type: string
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      in: header
+      name: x-api-key
+    bearerAuth:
+      type: http
+      scheme: bearer

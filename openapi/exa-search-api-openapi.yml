@@ -1,0 +1,249 @@
+openapi: 3.1.0
+info:
+  title: Exa Answer Search API
+  description: 'Neural web search API for AI agents. Endpoints and parameters derived from the Exa API reference at https://exa.ai/docs/reference. Covers /search, /contents, /findSimilar, and /answer. Authenticate with an API key via the x-api-key header or Authorization: Bearer.'
+  version: 1.0.0
+  contact:
+    name: API Evangelist
+    email: kin@apievangelist.com
+  license:
+    name: Proprietary
+servers:
+- url: https://api.exa.ai
+  description: Exa production API
+security:
+- apiKeyHeader: []
+- bearerAuth: []
+tags:
+- name: Search
+paths:
+  /search:
+    post:
+      summary: Neural or keyword web search
+      description: Search the Exa neural web index. Modes include instant, fast, auto, deep-lite, deep, and deep-reasoning. Optionally returns contents, highlights, and summaries.
+      operationId: search
+      tags:
+      - Search
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchRequest'
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+  /findSimilar:
+    post:
+      summary: Find pages similar to a URL
+      operationId: findSimilar
+      tags:
+      - Search
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FindSimilarRequest'
+      responses:
+        '200':
+          description: Similar results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+components:
+  schemas:
+    ContentsOptions:
+      type: object
+      properties:
+        text:
+          oneOf:
+          - type: boolean
+          - type: object
+            properties:
+              maxCharacters:
+                type: integer
+              includeHtmlTags:
+                type: boolean
+        highlights:
+          type: object
+          properties:
+            query:
+              type: string
+            numSentences:
+              type: integer
+            highlightsPerUrl:
+              type: integer
+        summary:
+          type: object
+          properties:
+            query:
+              type: string
+            schema:
+              type: object
+              additionalProperties: true
+        subpages:
+          type: integer
+        subpageTarget:
+          type: array
+          items:
+            type: string
+        extras:
+          type: object
+          additionalProperties: true
+    SearchResponse:
+      type: object
+      properties:
+        requestId:
+          type: string
+        autopromptString:
+          type: string
+        resolvedSearchType:
+          type: string
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchResult'
+        costDollars:
+          type: object
+          additionalProperties: true
+    FindSimilarRequest:
+      type: object
+      required:
+      - url
+      properties:
+        url:
+          type: string
+          format: uri
+        numResults:
+          type: integer
+          default: 10
+        excludeSourceDomain:
+          type: boolean
+        category:
+          type: string
+        contents:
+          $ref: '#/components/schemas/ContentsOptions'
+        includeDomains:
+          type: array
+          items:
+            type: string
+        excludeDomains:
+          type: array
+          items:
+            type: string
+        startCrawlDate:
+          type: string
+          format: date-time
+        endCrawlDate:
+          type: string
+          format: date-time
+        startPublishedDate:
+          type: string
+          format: date-time
+        endPublishedDate:
+          type: string
+          format: date-time
+    SearchRequest:
+      type: object
+      required:
+      - query
+      properties:
+        query:
+          type: string
+          description: The query string for the search
+        type:
+          type: string
+          enum:
+          - instant
+          - fast
+          - auto
+          - deep-lite
+          - deep
+          - deep-reasoning
+        numResults:
+          type: integer
+          minimum: 1
+          maximum: 100
+          default: 10
+        category:
+          type: string
+          enum:
+          - company
+          - research paper
+          - news
+          - personal site
+          - financial report
+          - people
+        contents:
+          $ref: '#/components/schemas/ContentsOptions'
+        additionalQueries:
+          type: array
+          items:
+            type: string
+        systemPrompt:
+          type: string
+        outputSchema:
+          type: object
+          additionalProperties: true
+        stream:
+          type: boolean
+        moderation:
+          type: boolean
+        includeDomains:
+          type: array
+          items:
+            type: string
+        excludeDomains:
+          type: array
+          items:
+            type: string
+        startCrawlDate:
+          type: string
+          format: date-time
+        endCrawlDate:
+          type: string
+          format: date-time
+        startPublishedDate:
+          type: string
+          format: date-time
+        endPublishedDate:
+          type: string
+          format: date-time
+    SearchResult:
+      type: object
+      properties:
+        id:
+          type: string
+        url:
+          type: string
+          format: uri
+        title:
+          type: string
+        publishedDate:
+          type: string
+        author:
+          type: string
+        score:
+          type: number
+        text:
+          type: string
+        highlights:
+          type: array
+          items:
+            type: string
+        summary:
+          type: string
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      in: header
+      name: x-api-key
+    bearerAuth:
+      type: http
+      scheme: bearer
