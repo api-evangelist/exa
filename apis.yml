@@ -12,9 +12,22 @@ description: >-
   companies. Exa is SOC 2 Type II certified, offers Zero Data Retention, and
   ships Python and JavaScript SDKs.
 type: Index
+accessModel:
+  pricing: free
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Free · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Provider
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/exa.png
 tags:
   - Search
   - Neural Search
@@ -33,86 +46,115 @@ created: '2026-05-23'
 modified: '2026-05-23'
 specificationVersion: '0.20'
 apis:
-  - aid: exa:search-api
-    name: Exa Search API
-    description: >-
-      The Exa Search API provides neural web search, contents retrieval, find
-      similar, and grounded answers for AI agents. Multiple speed modes range
-      from fast 250ms searches to deep research lasting tens of seconds, and
-      category indexes cover companies, people, news, and research papers.
-    humanURL: https://exa.ai/docs
-    baseURL: https://api.exa.ai
-    tags:
-      - Search
-      - Contents
-      - Find Similar
-      - Answer
-      - Highlights
-      - Summaries
-      - REST
-    properties:
-      - type: Documentation
-        url: https://exa.ai/docs
-      - type: GettingStarted
-        url: https://dashboard.exa.ai/onboarding
-      - type: Signup
-        url: https://dashboard.exa.ai
-      - type: APIReference
-        url: https://exa.ai/docs/reference/search
-      - type: SDKs
-        url: https://github.com/exa-labs/exa-py
-      - type: SDKs
-        url: https://github.com/exa-labs/exa-js
-      - type: GitHubRepository
-        url: https://github.com/exa-labs
-      - type: Pricing
-        url: https://exa.ai/pricing
-      - type: Authentication
-        url: https://dashboard.exa.ai/api-keys
-    features:
-      - name: Neural Search
-        description: Embedding-based search across a purpose-built web index optimized for AI agents.
-      - name: Contents API
-        description: Extract clean page contents and highlights from URLs returned by search.
-      - name: Find Similar
-        description: Discover semantically similar pages given a seed URL.
-      - name: Answer API
-        description: Generate grounded answers with citations using live search results.
-      - name: Speed Modes
-        description: Fast, Auto, and Deep modes trade latency for comprehensiveness and reasoning depth.
-      - name: Category Indexes
-        description: Specialized indexes for companies, people, news, research papers, and financials.
-      - name: Structured Output
-        description: Extract structured JSON from results using an output schema across 70M+ companies.
-      - name: Token-Efficient Highlights
-        description: Return condensed highlights to reduce LLM input tokens by up to 90 percent.
-      - name: Enterprise Controls
-        description: SOC 2 Type II, Zero Data Retention option, and SSO for enterprise customers.
-    useCases:
-      - name: Agent Web Search
-        description: Equip agents with a web search tool tuned for relevance and freshness.
-      - name: Deep Research
-        description: Run multi-step research with citation-grounded answers and contents.
-      - name: Competitor and Market Intel
-        description: Find similar companies, monitor news, and extract structured firmographics.
-      - name: RAG Over the Web
-        description: Use search and contents endpoints as a web retrieval layer for RAG pipelines.
-      - name: Lead and People Search
-        description: Query the People and Companies indexes for sales and recruiting workflows.
-    integrations:
-      - name: LangChain
-      - name: LlamaIndex
-      - name: CrewAI
-      - name: Vercel AI SDK
-      - name: OpenAI
-      - name: Anthropic
-      - name: Model Context Protocol
-      - name: LangGraph
-      - name: Pydantic AI
-      - name: Mastra
-    authentication:
-      - type: API Key
-        description: Authenticate with an API key via the x-api-key header.
+- aid: exa:search-api
+  name: Exa Search API
+  description: >-
+    The Exa Search API provides neural web search, contents retrieval, find similar, and grounded answers
+    for AI agents. Multiple speed modes range from fast 250ms searches to deep research lasting tens of
+    seconds, and category indexes cover companies, people, news, and research papers.
+  humanURL: https://exa.ai/docs
+  baseURL: https://api.exa.ai
+  tags:
+  - Search
+  - Contents
+  - Find Similar
+  - Answer
+  - Highlights
+  - Summaries
+  - REST
+  properties:
+  - type: Documentation
+    url: https://exa.ai/docs
+  - type: GettingStarted
+    url: https://dashboard.exa.ai/onboarding
+  - type: Signup
+    url: https://dashboard.exa.ai
+  - type: APIReference
+    url: https://exa.ai/docs/reference/search
+  - type: SDKs
+    url: https://github.com/exa-labs/exa-py
+  - type: SDKs
+    url: https://github.com/exa-labs/exa-js
+  - type: GitHubRepository
+    url: https://github.com/exa-labs
+  - type: Pricing
+    url: https://exa.ai/pricing
+  - type: Authentication
+    url: https://dashboard.exa.ai/api-keys
+  features:
+  - name: Neural Search
+    description: Embedding-based search across a purpose-built web index optimized for AI agents.
+  - name: Contents API
+    description: Extract clean page contents and highlights from URLs returned by search.
+  - name: Find Similar
+    description: Discover semantically similar pages given a seed URL.
+  - name: Answer API
+    description: Generate grounded answers with citations using live search results.
+  - name: Speed Modes
+    description: Fast, Auto, and Deep modes trade latency for comprehensiveness and reasoning depth.
+  - name: Category Indexes
+    description: Specialized indexes for companies, people, news, research papers, and financials.
+  - name: Structured Output
+    description: Extract structured JSON from results using an output schema across 70M+ companies.
+  - name: Token-Efficient Highlights
+    description: Return condensed highlights to reduce LLM input tokens by up to 90 percent.
+  - name: Enterprise Controls
+    description: SOC 2 Type II, Zero Data Retention option, and SSO for enterprise customers.
+  useCases:
+  - name: Agent Web Search
+    description: Equip agents with a web search tool tuned for relevance and freshness.
+  - name: Deep Research
+    description: Run multi-step research with citation-grounded answers and contents.
+  - name: Competitor and Market Intel
+    description: Find similar companies, monitor news, and extract structured firmographics.
+  - name: RAG Over the Web
+    description: Use search and contents endpoints as a web retrieval layer for RAG pipelines.
+  - name: Lead and People Search
+    description: Query the People and Companies indexes for sales and recruiting workflows.
+  integrations:
+  - name: LangChain
+  - name: LlamaIndex
+  - name: CrewAI
+  - name: Vercel AI SDK
+  - name: OpenAI
+  - name: Anthropic
+  - name: Model Context Protocol
+  - name: LangGraph
+  - name: Pydantic AI
+  - name: Mastra
+  authentication:
+  - type: API Key
+    description: Authenticate with an API key via the x-api-key header.
+- aid: exa:exa-answer-api
+  name: Exa Answer API
+  description: The Answer API from Exa — 1 operation(s) for answer.
+  humanURL: https://exa.ai/docs
+  baseURL: https://api.exa.ai
+  tags:
+  - Answer
+  properties:
+  - type: OpenAPI
+    url: openapi/exa-answer-api-openapi.yml
+- aid: exa:exa-contents-api
+  name: Exa Contents API
+  description: The Contents API from Exa — 1 operation(s) for contents.
+  humanURL: https://exa.ai/docs
+  baseURL: https://api.exa.ai
+  tags:
+  - Contents
+  properties:
+  - type: OpenAPI
+    url: openapi/exa-contents-api-openapi.yml
+- aid: exa:exa-search-api
+  name: Exa Search API
+  description: The Search API from Exa — 2 operation(s) for search.
+  humanURL: https://exa.ai/docs
+  baseURL: https://api.exa.ai
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/exa-search-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/exa-agentic-access.yml
