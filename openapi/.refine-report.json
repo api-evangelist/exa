@@ -1,0 +1,18 @@
+{
+  "provider": "exa",
+  "sources": [
+    "exa-answer-api-openapi.yml",
+    "exa-contents-api-openapi.yml",
+    "exa-search-api-openapi.yml"
+  ],
+  "outputs": [
+    "exa-answer-api-openapi.yml",
+    "exa-contents-api-openapi.yml",
+    "exa-search-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
