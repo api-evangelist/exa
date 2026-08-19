@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Exa Search Answer API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Answer",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get an LLM-grounded answer with citations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.exa.ai/answer",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns a direct answer (factual queries) or a detailed summary with citations (open-ended queries). Supports streaming with stream=true and structured output via outputSchema."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

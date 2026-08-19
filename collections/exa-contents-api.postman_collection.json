@@ -1,0 +1,148 @@
+{
+  "item": [
+    {
+      "id": "ab6d1659-dd1c-4fb9-918b-7ce723867eea",
+      "name": "Contents",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "51ba7aae-db69-4613-af0d-e906f93dc73c",
+          "name": "Get contents for a set of URLs",
+          "request": {
+            "name": "Get contents for a set of URLs",
+            "description": {
+              "content": "Extract page text, summaries, highlights, and subpages for a list of URLs already known to the caller.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"urls\": [\n    \"<uri>\",\n    \"<uri>\"\n  ],\n  \"text\": \"<boolean>\",\n  \"highlights\": {\n    \"query\": \"<string>\",\n    \"numSentences\": \"<integer>\",\n    \"highlightsPerUrl\": \"<integer>\"\n  },\n  \"summary\": {\n    \"query\": \"<string>\",\n    \"schema\": {\n      \"key_0\": 3734.2309852438384,\n      \"key_1\": 1774,\n      \"key_2\": true,\n      \"key_3\": \"string\"\n    }\n  },\n  \"subpages\": \"<integer>\",\n  \"subpageTarget\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"maxAgeHours\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4e8ef76f-0e83-4a3a-9d66-15b13d06d83c",
+              "name": "Contents results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"urls\": [\n    \"<uri>\",\n    \"<uri>\"\n  ],\n  \"text\": \"<boolean>\",\n  \"highlights\": {\n    \"query\": \"<string>\",\n    \"numSentences\": \"<integer>\",\n    \"highlightsPerUrl\": \"<integer>\"\n  },\n  \"summary\": {\n    \"query\": \"<string>\",\n    \"schema\": {\n      \"key_0\": 9093.802339013915,\n      \"key_1\": 5726,\n      \"key_2\": 4902,\n      \"key_3\": 1201.394570552653\n    }\n  },\n  \"subpages\": \"<integer>\",\n  \"subpageTarget\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"maxAgeHours\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"string\",\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"url\": \"http://RZZNcTbDtIk.dhrfbiXIM4SwOu.hBXT,ieQCkfoni,6s,xD,Wl+ASxpEZBa0Ue,bwMJ8TUJ5pbenfpGFIWIxwyQ8\",\n      \"title\": \"string\",\n      \"publishedDate\": \"string\",\n      \"author\": \"string\",\n      \"score\": 4553.022719234591,\n      \"text\": \"string\",\n      \"highlights\": [\n        \"string\",\n        \"string\"\n      ],\n      \"summary\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"url\": \"http://RmHwKiCPZFWKlMUUDEOaGqU.uvlrneqNoyKOtBY81y6cGZBIjlAqTBjA6gsvw5KKhvZKUV.rocO5TRSD\",\n      \"title\": \"string\",\n      \"publishedDate\": \"string\",\n      \"author\": \"string\",\n      \"score\": 8392.590771292509,\n      \"text\": \"string\",\n      \"highlights\": [\n        \"string\",\n        \"string\"\n      ],\n      \"summary\": \"string\"\n    }\n  ],\n  \"costDollars\": {\n    \"key_0\": 4313\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.exa.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6d9ebc58-89b2-4ca0-925d-26a118f99148",
+    "name": "Exa Search Answer Contents API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Neural web search API for AI agents. Endpoints and parameters derived from the Exa API reference at https://exa.ai/docs/reference. Covers /search, /contents, /findSimilar, and /answer. Authenticate with an API key via the x-api-key header or Authorization: Bearer.\n\nContact Support:\n Name: API Evangelist\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}

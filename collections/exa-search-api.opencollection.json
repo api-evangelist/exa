@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Exa Answer Search API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Neural or keyword web search",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.exa.ai/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search the Exa neural web index. Modes include instant, fast, auto, deep-lite, deep, and deep-reasoning. Optionally returns contents, highlights, and summaries."
+        },
+        {
+          "info": {
+            "name": "Find pages similar to a URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.exa.ai/findSimilar",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Find pages similar to a URL"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

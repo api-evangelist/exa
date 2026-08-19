@@ -1,0 +1,244 @@
+{
+  "item": [
+    {
+      "id": "1e38d9be-04b7-4d71-8f43-07a8570df0e8",
+      "name": "Search",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3832cff4-95a7-4a84-b90d-66851a8b37dc",
+          "name": "Neural or keyword web search",
+          "request": {
+            "name": "Neural or keyword web search",
+            "description": {
+              "content": "Search the Exa neural web index. Modes include instant, fast, auto, deep-lite, deep, and deep-reasoning. Optionally returns contents, highlights, and summaries.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\",\n  \"type\": \"<string>\",\n  \"numResults\": 10,\n  \"category\": \"<string>\",\n  \"contents\": {\n    \"text\": \"<boolean>\",\n    \"highlights\": {\n      \"query\": \"<string>\",\n      \"numSentences\": \"<integer>\",\n      \"highlightsPerUrl\": \"<integer>\"\n    },\n    \"summary\": {\n      \"query\": \"<string>\",\n      \"schema\": {\n        \"key_0\": \"string\",\n        \"key_1\": 6251\n      }\n    },\n    \"subpages\": \"<integer>\",\n    \"subpageTarget\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"extras\": {\n      \"key_0\": 3996.8834712940125,\n      \"key_1\": false\n    }\n  },\n  \"additionalQueries\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"systemPrompt\": \"<string>\",\n  \"outputSchema\": {\n    \"key_0\": \"string\",\n    \"key_1\": 189.8401470206701,\n    \"key_2\": true,\n    \"key_3\": 4572.366237501653\n  },\n  \"stream\": \"<boolean>\",\n  \"moderation\": \"<boolean>\",\n  \"includeDomains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"excludeDomains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"startCrawlDate\": \"<dateTime>\",\n  \"endCrawlDate\": \"<dateTime>\",\n  \"startPublishedDate\": \"<dateTime>\",\n  \"endPublishedDate\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "32a296fb-5a7b-4c95-bf03-76d586beb6bb",
+              "name": "Search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"<string>\",\n  \"type\": \"<string>\",\n  \"numResults\": 10,\n  \"category\": \"<string>\",\n  \"contents\": {\n    \"text\": true,\n    \"highlights\": {\n      \"query\": \"string\",\n      \"numSentences\": 1026,\n      \"highlightsPerUrl\": 6935\n    },\n    \"summary\": {\n      \"query\": \"string\",\n      \"schema\": {\n        \"key_0\": false,\n        \"key_1\": 3270.039273863159\n      }\n    },\n    \"subpages\": 1148,\n    \"subpageTarget\": [\n      \"string\",\n      \"string\"\n    ],\n    \"extras\": {\n      \"key_0\": 3148.127459921712,\n      \"key_1\": 8103,\n      \"key_2\": \"string\"\n    }\n  },\n  \"additionalQueries\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"systemPrompt\": \"<string>\",\n  \"outputSchema\": {\n    \"key_0\": true,\n    \"key_1\": 3039.4650897032307\n  },\n  \"stream\": \"<boolean>\",\n  \"moderation\": \"<boolean>\",\n  \"includeDomains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"excludeDomains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"startCrawlDate\": \"<dateTime>\",\n  \"endCrawlDate\": \"<dateTime>\",\n  \"startPublishedDate\": \"<dateTime>\",\n  \"endPublishedDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"string\",\n  \"autopromptString\": \"string\",\n  \"resolvedSearchType\": \"string\",\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"url\": \"https://GhzBjjMQZZrEbMJdTr.ojwhb\",\n      \"title\": \"string\",\n      \"publishedDate\": \"string\",\n      \"author\": \"string\",\n      \"score\": 2057.605369721316,\n      \"text\": \"string\",\n      \"highlights\": [\n        \"string\",\n        \"string\"\n      ],\n      \"summary\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"url\": \"http://iVhjfDkGDtJPvPUdKuTqtJ.equ,2Z1OUdMOtOj9KRB4fcw6uI3tZI6h1Uw3v\",\n      \"title\": \"string\",\n      \"publishedDate\": \"string\",\n      \"author\": \"string\",\n      \"score\": 8774.683619219384,\n      \"text\": \"string\",\n      \"highlights\": [\n        \"string\",\n        \"string\"\n      ],\n      \"summary\": \"string\"\n    }\n  ],\n  \"costDollars\": {\n    \"key_0\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "130adadd-ac2a-4320-a433-b40a8594b206",
+          "name": "Find pages similar to a URL",
+          "request": {
+            "name": "Find pages similar to a URL",
+            "description": {},
+            "url": {
+              "path": [
+                "findSimilar"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<uri>\",\n  \"numResults\": 10,\n  \"excludeSourceDomain\": \"<boolean>\",\n  \"category\": \"<string>\",\n  \"contents\": {\n    \"text\": \"<boolean>\",\n    \"highlights\": {\n      \"query\": \"<string>\",\n      \"numSentences\": \"<integer>\",\n      \"highlightsPerUrl\": \"<integer>\"\n    },\n    \"summary\": {\n      \"query\": \"<string>\",\n      \"schema\": {\n        \"key_0\": 2590,\n        \"key_1\": true,\n        \"key_2\": 4090.073211352161,\n        \"key_3\": 3425\n      }\n    },\n    \"subpages\": \"<integer>\",\n    \"subpageTarget\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"extras\": {\n      \"key_0\": true\n    }\n  },\n  \"includeDomains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"excludeDomains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"startCrawlDate\": \"<dateTime>\",\n  \"endCrawlDate\": \"<dateTime>\",\n  \"startPublishedDate\": \"<dateTime>\",\n  \"endPublishedDate\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "288a4bfc-64ba-4790-9015-0c9b08cc6f63",
+              "name": "Similar results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "findSimilar"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<uri>\",\n  \"numResults\": 10,\n  \"excludeSourceDomain\": \"<boolean>\",\n  \"category\": \"<string>\",\n  \"contents\": {\n    \"text\": false,\n    \"highlights\": {\n      \"query\": \"string\",\n      \"numSentences\": 3812,\n      \"highlightsPerUrl\": 9473\n    },\n    \"summary\": {\n      \"query\": \"string\",\n      \"schema\": {\n        \"key_0\": true,\n        \"key_1\": 2964,\n        \"key_2\": 8930.100762671422\n      }\n    },\n    \"subpages\": 8231,\n    \"subpageTarget\": [\n      \"string\",\n      \"string\"\n    ],\n    \"extras\": {\n      \"key_0\": 4583,\n      \"key_1\": 8954.924146541998,\n      \"key_2\": \"string\"\n    }\n  },\n  \"includeDomains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"excludeDomains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"startCrawlDate\": \"<dateTime>\",\n  \"endCrawlDate\": \"<dateTime>\",\n  \"startPublishedDate\": \"<dateTime>\",\n  \"endPublishedDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"string\",\n  \"autopromptString\": \"string\",\n  \"resolvedSearchType\": \"string\",\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"url\": \"https://GhzBjjMQZZrEbMJdTr.ojwhb\",\n      \"title\": \"string\",\n      \"publishedDate\": \"string\",\n      \"author\": \"string\",\n      \"score\": 2057.605369721316,\n      \"text\": \"string\",\n      \"highlights\": [\n        \"string\",\n        \"string\"\n      ],\n      \"summary\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"url\": \"http://iVhjfDkGDtJPvPUdKuTqtJ.equ,2Z1OUdMOtOj9KRB4fcw6uI3tZI6h1Uw3v\",\n      \"title\": \"string\",\n      \"publishedDate\": \"string\",\n      \"author\": \"string\",\n      \"score\": 8774.683619219384,\n      \"text\": \"string\",\n      \"highlights\": [\n        \"string\",\n        \"string\"\n      ],\n      \"summary\": \"string\"\n    }\n  ],\n  \"costDollars\": {\n    \"key_0\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.exa.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b2eeaa31-24bb-4b26-866f-fc7b77540ad1",
+    "name": "Exa Answer Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Neural web search API for AI agents. Endpoints and parameters derived from the Exa API reference at https://exa.ai/docs/reference. Covers /search, /contents, /findSimilar, and /answer. Authenticate with an API key via the x-api-key header or Authorization: Bearer.\n\nContact Support:\n Name: API Evangelist\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}
