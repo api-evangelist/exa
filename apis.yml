@@ -35,6 +35,19 @@ tags:
   - LLMs
   - Web Index
   - Retrieval
+  - Answers
+  - Contents
+  - Find Similar
+  - Research
+  - SOC 2
+  - MCP
+tags_raw:
+  - Search
+  - Neural Search
+  - AI Agents
+  - LLMs
+  - Web Index
+  - Retrieval
   - Answer
   - Contents
   - Find Similar
@@ -55,6 +68,14 @@ apis:
   humanURL: https://exa.ai/docs
   baseURL: https://api.exa.ai
   tags:
+  - Search
+  - Contents
+  - Find Similar
+  - Answers
+  - Highlights
+  - Summary
+  - REST
+  tags_raw:
   - Search
   - Contents
   - Find Similar
@@ -131,6 +152,8 @@ apis:
   humanURL: https://exa.ai/docs
   baseURL: https://api.exa.ai
   tags:
+  - Answers
+  tags_raw:
   - Answer
   properties:
   - type: OpenAPI
