@@ -47,7 +47,7 @@ tags:
   - LLMs
   - Web Index
   - Retrieval
-  - Answers
+  - Answer
   - Contents
   - Find Similar
   - Research
@@ -83,7 +83,7 @@ apis:
   - Search
   - Contents
   - Find Similar
-  - Answers
+  - Answer
   - Highlights
   - Summary
   - REST
@@ -164,7 +164,7 @@ apis:
   humanURL: https://exa.ai/docs
   baseURL: https://api.exa.ai
   tags:
-  - Answers
+  - Answer
   tags_raw:
   - Answer
   properties:

@@ -10,7 +10,7 @@
     }
   ],
   "post_count": 1,
-  "fetched": "2026-08-22T20:20:02Z",
+  "fetched": "2026-08-30T22:33:40Z",
   "agent_pulled": "2026-07-04",
   "note": "Blog is JS-rendered with no dates in HTML; used sitemap.xml lastmod dates to determine recency. Most recent post exa-agent (2026-06-16) predates the 2026-06-20 window, so nothing new saved."
 }
