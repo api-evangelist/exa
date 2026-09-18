@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Exa Answer Search API
+  title: Exa Search API
   description: 'Neural web search API for AI agents. Endpoints and parameters derived from the Exa API reference at https://exa.ai/docs/reference. Covers /search, /contents, /findSimilar, and /answer. Authenticate with an API key via the x-api-key header or Authorization: Bearer.'
   version: 1.0.0
   contact:
@@ -58,6 +58,30 @@ paths:
                 $ref: '#/components/schemas/SearchResponse'
 components:
   schemas:
+    SearchResult:
+      type: object
+      properties:
+        id:
+          type: string
+        url:
+          type: string
+          format: uri
+        title:
+          type: string
+        publishedDate:
+          type: string
+        author:
+          type: string
+        score:
+          type: number
+        text:
+          type: string
+        highlights:
+          type: array
+          items:
+            type: string
+        summary:
+          type: string
     ContentsOptions:
       type: object
       properties:
@@ -96,59 +120,6 @@ components:
         extras:
           type: object
           additionalProperties: true
-    SearchResponse:
-      type: object
-      properties:
-        requestId:
-          type: string
-        autopromptString:
-          type: string
-        resolvedSearchType:
-          type: string
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/SearchResult'
-        costDollars:
-          type: object
-          additionalProperties: true
-    FindSimilarRequest:
-      type: object
-      required:
-      - url
-      properties:
-        url:
-          type: string
-          format: uri
-        numResults:
-          type: integer
-          default: 10
-        excludeSourceDomain:
-          type: boolean
-        category:
-          type: string
-        contents:
-          $ref: '#/components/schemas/ContentsOptions'
-        includeDomains:
-          type: array
-          items:
-            type: string
-        excludeDomains:
-          type: array
-          items:
-            type: string
-        startCrawlDate:
-          type: string
-          format: date-time
-        endCrawlDate:
-          type: string
-          format: date-time
-        startPublishedDate:
-          type: string
-          format: date-time
-        endPublishedDate:
-          type: string
-          format: date-time
     SearchRequest:
       type: object
       required:
@@ -215,30 +186,59 @@ components:
         endPublishedDate:
           type: string
           format: date-time
-    SearchResult:
+    SearchResponse:
       type: object
       properties:
-        id:
+        requestId:
           type: string
+        autopromptString:
+          type: string
+        resolvedSearchType:
+          type: string
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchResult'
+        costDollars:
+          type: object
+          additionalProperties: true
+    FindSimilarRequest:
+      type: object
+      required:
+      - url
+      properties:
         url:
           type: string
           format: uri
-        title:
+        numResults:
+          type: integer
+          default: 10
+        excludeSourceDomain:
+          type: boolean
+        category:
           type: string
-        publishedDate:
-          type: string
-        author:
-          type: string
-        score:
-          type: number
-        text:
-          type: string
-        highlights:
+        contents:
+          $ref: '#/components/schemas/ContentsOptions'
+        includeDomains:
           type: array
           items:
             type: string
-        summary:
+        excludeDomains:
+          type: array
+          items:
+            type: string
+        startCrawlDate:
           type: string
+          format: date-time
+        endCrawlDate:
+          type: string
+          format: date-time
+        startPublishedDate:
+          type: string
+          format: date-time
+        endPublishedDate:
+          type: string
+          format: date-time
   securitySchemes:
     apiKeyHeader:
       type: apiKey

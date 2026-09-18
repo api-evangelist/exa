@@ -1,9 +1,7 @@
 {
   "provider": "exa",
   "sources": [
-    "exa-answer-api-openapi.yml",
-    "exa-contents-api-openapi.yml",
-    "exa-search-api-openapi.yml"
+    "_original/exa-openapi.yml"
   ],
   "outputs": [
     "exa-answer-api-openapi.yml",
@@ -13,6 +11,17 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "exa-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "exa-openapi.yml: declared missing tag: Answer",
+    "exa-openapi.yml: declared missing tag: Contents",
+    "exa-openapi.yml: declared missing tag: Search",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "exa-answer-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "exa-contents-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "exa-search-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
